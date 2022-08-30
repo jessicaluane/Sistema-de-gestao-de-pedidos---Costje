@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="pedidos" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="38cc5a1a-3d44-427e-b765-7ecce5973e69">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="55"/>
+	<parameter name="idpedidos" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select*from pedidos where idpedidos = $P{idpedidos}]]>
+	</queryString>
+	<field name="idpedidos" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="data_pedido" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tipo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="situacao" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="data_entrega" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="descricao" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="metragem_recebida" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="valor" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="busto" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cintura" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="quadril" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="corpo_frente" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="corpo_costas" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="comprimento" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idcli" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="Nome Cliente" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="112" splitType="Stretch">
+			<staticText>
+				<reportElement x="126" y="32" width="100" height="20" uuid="e2c8fe18-9efe-4ebe-b09a-0b2092a3aaf2"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Costje Costuras Ltda]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="126" y="52" width="300" height="20" uuid="1ed9a861-2d8b-400e-bf16-5ad113318285"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Rua: Av. Amazonas , 00 Centro - São Paulo/ Brasil]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="126" y="72" width="154" height="20" uuid="3a0ba85e-d051-4b45-ae0d-5a1785156a5c"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[CNPJ: 15009836/0001-59]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="126" y="92" width="154" height="20" uuid="01a22e30-c552-4632-b943-abcf8b0db36d"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Tel: (11)0000-9563]]></text>
+			</staticText>
+			<image>
+				<reportElement x="15" y="12" width="100" height="100" uuid="aad619a6-885f-417e-9f7e-ee76cb25e06c"/>
+				<imageExpression><![CDATA["D:\\costje\\jessi.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="51" splitType="Stretch">
+			<staticText>
+				<reportElement x="126" y="4" width="113" height="31" uuid="3f3d3ce7-c5b5-4782-afc5-4a2fe91ccebb"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pedido nº]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="239" y="4" width="35" height="31" uuid="63c4efae-b0b2-4b71-80b5-8b19e680f2fc"/>
+				<textElement>
+					<font size="24" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{idpedidos}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="358" y="15" width="176" height="20" uuid="b7e1d883-b99d-4517-b34d-5557f188b771"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="26" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="d7a87350-1479-4290-8950-1cc90ecaf7c4"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Data do pedido:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="0" width="100" height="20" uuid="8d2b89a7-0d26-4c3c-a945-308be5cd1de0"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{data_pedido}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="13" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="505" splitType="Stretch">
+			<textField>
+				<reportElement x="100" y="301" width="100" height="20" uuid="b18b40db-7ce9-4e71-b316-1b016b2aa150"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{data_entrega}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="301" width="100" height="20" uuid="4365b3b1-195b-4224-a447-c3613f6277d1"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data de entrega]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="226" y="0" width="64" height="20" uuid="a0afe25a-3e5f-4da0-b3ca-c106f6aeb9ea"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[ID Cliente:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="290" y="0" width="49" height="20" uuid="1aed36b7-cd22-4f6e-900d-4a57a17a7c3a"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{idcli}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="39" width="408" height="21" uuid="44045f73-2285-48dd-a0e2-c4e6133bb01b"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descricao}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="40" width="100" height="20" uuid="6345267f-d5df-4b1c-817a-d7dc6149750c"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descrição:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="23276690-3614-4be5-ac9e-9857b881ce31"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Situação]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="60" width="100" height="20" uuid="c3462bc1-6e47-421a-b1b2-bbd858710159"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{metragem_recebida}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="60" width="100" height="20" uuid="49da09ec-fd9c-4f76-ac21-56ce43963b49"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Metragem Recebida:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="125" width="100" height="20" forecolor="#000000" uuid="52e3a4fe-2adb-4fed-a0e9-e60ecafd2b03"/>
+				<box>
+					<pen lineStyle="Dashed" lineColor="#FF0066"/>
+					<topPen lineStyle="Dashed" lineColor="#FF0066"/>
+					<leftPen lineStyle="Dashed" lineColor="#FF0066"/>
+					<bottomPen lineStyle="Dashed" lineColor="#FF0066"/>
+					<rightPen lineStyle="Dashed" lineColor="#FF0066"/>
+				</box>
+				<textElement markup="styled">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{busto}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="125" width="100" height="20" forecolor="#000000" uuid="b7ef363d-d358-4470-9eda-9bce3079354d"/>
+				<box>
+					<pen lineStyle="Dashed" lineColor="#FF0066"/>
+					<topPen lineStyle="Dashed" lineColor="#FF0066"/>
+					<leftPen lineStyle="Dashed" lineColor="#FF0066"/>
+					<bottomPen lineStyle="Dashed" lineColor="#FF0066"/>
+					<rightPen lineStyle="Dashed" lineColor="#FF0066"/>
+				</box>
+				<textElement markup="styled">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Busto]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="145" width="100" height="20" forecolor="#000000" uuid="9c8c324e-daae-417f-be53-8096b9702ec4"/>
+				<box>
+					<pen lineStyle="Dashed" lineColor="#FF0066"/>
+					<topPen lineStyle="Dashed" lineColor="#FF0066"/>
+					<leftPen lineStyle="Dashed" lineColor="#FF0066"/>
+					<bottomPen lineStyle="Dashed" lineColor="#FF0066"/>
+					<rightPen lineStyle="Dashed" lineColor="#FF0066"/>
+				</box>
+				<textElement markup="styled">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cintura}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="145" width="100" height="20" forecolor="#000000" uuid="3c3a4bb3-9a3f-4a7c-ac51-87c77dda6542"/>
+				<box>
+					<pen lineStyle="Dashed" lineColor="#FF0066"/>
+					<topPen lineStyle="Dashed" lineColor="#FF0066"/>
+					<leftPen lineStyle="Dashed" lineColor="#FF0066"/>
+					<bottomPen lineStyle="Dashed" lineColor="#FF0066"/>
+					<rightPen lineStyle="Dashed" lineColor="#FF0066"/>
+				</box>
+				<textElement markup="styled">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Cintura]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="165" width="100" height="20" forecolor="#000000" uuid="b9599ed9-cb0c-4415-8668-15922c90b73e"/>
+				<box>
+					<pen lineStyle="Dashed" lineColor="#FF0066"/>
+					<topPen lineStyle="Dashed" lineColor="#FF0066"/>
+					<leftPen lineStyle="Dashed" lineColor="#FF0066"/>
+					<bottomPen lineStyle="Dashed" lineColor="#FF0066"/>
+					<rightPen lineStyle="Dashed" lineColor="#FF0066"/>
+				</box>
+				<textElement markup="styled">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{quadril}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="165" width="100" height="20" forecolor="#000000" uuid="09b89a27-ba92-4836-88a6-c1d3020f13bd"/>
+				<box>
+					<pen lineStyle="Dashed" lineColor="#FF0066"/>
+					<topPen lineStyle="Dashed" lineColor="#FF0066"/>
+					<leftPen lineStyle="Dashed" lineColor="#FF0066"/>
+					<bottomPen lineStyle="Dashed" lineColor="#FF0066"/>
+					<rightPen lineStyle="Dashed" lineColor="#FF0066"/>
+				</box>
+				<textElement markup="styled">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Quadril]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="185" width="100" height="20" forecolor="#000000" uuid="82eec656-b82e-4134-b21f-9d30ae881613"/>
+				<box>
+					<pen lineStyle="Dashed" lineColor="#FF0066"/>
+					<topPen lineStyle="Dashed" lineColor="#FF0066"/>
+					<leftPen lineStyle="Dashed" lineColor="#FF0066"/>
+					<bottomPen lineStyle="Dashed" lineColor="#FF0066"/>
+					<rightPen lineStyle="Dashed" lineColor="#FF0066"/>
+				</box>
+				<textElement markup="styled">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{corpo_frente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="205" width="100" height="20" forecolor="#000000" uuid="d4d1f598-892c-4fd4-b99a-41e82f59bc95"/>
+				<box>
+					<pen lineStyle="Dashed" lineColor="#FF0066"/>
+					<topPen lineStyle="Dashed" lineColor="#FF0066"/>
+					<leftPen lineStyle="Dashed" lineColor="#FF0066"/>
+					<bottomPen lineStyle="Dashed" lineColor="#FF0066"/>
+					<rightPen lineStyle="Dashed" lineColor="#FF0066"/>
+				</box>
+				<textElement markup="styled">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{corpo_costas}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="205" width="100" height="20" forecolor="#000000" uuid="68850994-cf52-4f44-9af7-4bfcda63246a"/>
+				<box>
+					<pen lineStyle="Dashed" lineColor="#FF0066"/>
+					<topPen lineStyle="Dashed" lineColor="#FF0066"/>
+					<leftPen lineStyle="Dashed" lineColor="#FF0066"/>
+					<bottomPen lineStyle="Dashed" lineColor="#FF0066"/>
+					<rightPen lineStyle="Dashed" lineColor="#FF0066"/>
+				</box>
+				<textElement markup="styled">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Corpo Costas]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="225" width="100" height="20" forecolor="#000000" uuid="3be2e6db-05fd-4a2e-b803-325207c036d5"/>
+				<box>
+					<pen lineStyle="Dashed" lineColor="#FF0066"/>
+					<topPen lineStyle="Dashed" lineColor="#FF0066"/>
+					<leftPen lineStyle="Dashed" lineColor="#FF0066"/>
+					<bottomPen lineStyle="Dashed" lineColor="#FF0066"/>
+					<rightPen lineStyle="Dashed" lineColor="#FF0066"/>
+				</box>
+				<textElement markup="styled">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{comprimento}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="225" width="100" height="20" forecolor="#000000" uuid="1c9b6d89-c4e6-481e-b26e-bde0b45126e8"/>
+				<box>
+					<pen lineStyle="Dashed" lineColor="#FF0066"/>
+					<topPen lineStyle="Dashed" lineColor="#FF0066"/>
+					<leftPen lineStyle="Dashed" lineColor="#FF0066"/>
+					<bottomPen lineStyle="Dashed" lineColor="#FF0066"/>
+					<rightPen lineStyle="Dashed" lineColor="#FF0066"/>
+				</box>
+				<textElement markup="styled">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Comprimento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="185" width="100" height="20" forecolor="#000000" uuid="406fad5e-dc78-4bbc-a846-450d647d1f23"/>
+				<box>
+					<pen lineStyle="Dashed" lineColor="#FF0066"/>
+					<topPen lineStyle="Dashed" lineColor="#FF0066"/>
+					<leftPen lineStyle="Dashed" lineColor="#FF0066"/>
+					<bottomPen lineStyle="Dashed" lineColor="#FF0066"/>
+					<rightPen lineStyle="Dashed" lineColor="#FF0066"/>
+				</box>
+				<textElement markup="styled">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Corpo frente]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="321" width="100" height="20" uuid="157a9552-8de7-41a6-b5b7-a7da9d55392c"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{valor}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="321" width="100" height="20" uuid="dd43a2cd-5caa-4f18-b747-8cbf062447dd"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Valor]]></text>
+			</staticText>
+			<image>
+				<reportElement x="226" y="85" width="296" height="399" uuid="27ed3abb-1b7a-4d83-b13d-f21c709f9e68"/>
+				<imageExpression><![CDATA["D:\\costje\\icones\\croqui2.jpg"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="100" y="0" width="100" height="20" uuid="2e60b018-11ac-40b1-903f-72f65f334edb"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{situacao}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="105" width="60" height="20" uuid="258044d5-3008-49e8-999a-abd158068c9a"/>
+				<box>
+					<pen lineStyle="Dashed" lineColor="#FF0066"/>
+					<topPen lineStyle="Dashed" lineColor="#FF0066"/>
+					<leftPen lineStyle="Dashed" lineColor="#FF0066"/>
+					<bottomPen lineStyle="Dashed" lineColor="#FF0066"/>
+					<rightPen lineStyle="Dashed" lineColor="#FF0066"/>
+				</box>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Medidas:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="420" width="142" height="20" uuid="3ee095ef-c3c9-4789-88c7-e4591fa8ec93"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Assinatura do cliente:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="440" width="142" height="20" uuid="21882ab6-5635-4c35-b233-14ce7f1b1e2f"/>
+				<text><![CDATA[____________________]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="108" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

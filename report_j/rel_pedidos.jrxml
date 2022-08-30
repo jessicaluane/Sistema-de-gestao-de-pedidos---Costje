@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="pedidos" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="73505565-2e06-4d7b-88ce-92b5f4697f61">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="8"/>
+	<queryString>
+		<![CDATA[select ped.idpedidos,data_pedido,situacao,descricao,valor,
+cli.nome, fone from pedidos as ped inner join clientes as cli
+on (cli.idcli=ped.idcli);]]>
+	</queryString>
+	<field name="idpedidos" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="data_pedido" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="situacao" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="descricao" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="valor" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fone" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="totalValor" class="java.lang.Double" calculation="Sum"/>
+	<variable name="TotalValor" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{valor}]]></variableExpression>
+	</variable>
+	<group name="idpedidos">
+		<groupExpression><![CDATA[$F{idpedidos}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="116" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="439" y="78" width="100" height="20" uuid="de27ddff-9cf5-45e2-aac6-369c35fbf94a"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="11" y="6" width="100" height="100" uuid="d271274a-8b57-4b87-8eb8-b46fc7bc87c2"/>
+				<imageExpression><![CDATA["D:\\costje\\jessi.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="413" y="6" width="80" height="20" uuid="feb6236a-f1f6-4d91-b297-c873950e7b6f"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="499" y="6" width="40" height="20" uuid="3326e083-7329-485c-a2be-96ec066feda4"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="119" y="78" width="154" height="20" uuid="3480b688-5533-4ac7-80be-8be57020d61b"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Tel: (11)0000-9563]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="119" y="38" width="300" height="20" uuid="1aa91290-98a5-4aca-8a35-a7d008d63c61"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Rua: Av. Amazonas , 00 Centro - São Paulo/ Brasil]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="119" y="58" width="154" height="20" uuid="004a23af-8836-4d3c-a361-9c4865a8c245"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[CNPJ: 15009836/0001-59]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="119" y="18" width="100" height="20" uuid="9a143e9d-302e-4057-a3ba-fe8e9243d2a4"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Costje Costuras Ltda]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="64" splitType="Stretch">
+			<staticText>
+				<reportElement x="156" y="10" width="202" height="29" uuid="c2b2b475-91fd-4798-aab4-475eb6c31858"/>
+				<textElement>
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relatório de Pedidos]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="26" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="22" height="20" uuid="2374a5c8-211b-464d-824d-0ff6f4a4b168"/>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="0" width="87" height="20" uuid="591c757b-d3fd-4ca8-b5ce-17099590f0c7"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data_pedido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="111" y="0" width="159" height="20" uuid="60147c6c-a7a7-4ac1-bff0-5904945a7a7c"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descrição]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="270" y="3" width="71" height="20" uuid="b9903540-6fad-48a6-b96f-4647652f012e"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Valor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="341" y="3" width="98" height="20" uuid="03b12405-6358-4ad0-aab9-f03a0c10fea7"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="439" y="0" width="100" height="20" uuid="75917c1a-cc41-4ebf-8094-f91856b858b6"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fone]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="22" height="20" uuid="512c9fb3-ecbf-49f4-b940-dafd4df1fd61"/>
+				<textFieldExpression><![CDATA[$F{idpedidos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="24" y="0" width="87" height="20" uuid="77764861-351f-47c1-9cd4-fd6c35c2bb7b"/>
+				<textFieldExpression><![CDATA[$F{data_pedido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="439" y="0" width="86" height="20" uuid="cf1f7c16-7f05-4c66-bda8-b362e19d515a"/>
+				<textFieldExpression><![CDATA[$F{fone}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="111" y="0" width="162" height="20" uuid="42019aa0-0079-47a2-b51c-d119b913c99c"/>
+				<textFieldExpression><![CDATA[$F{descricao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="270" y="0" width="71" height="20" uuid="2ac8e47a-c92d-4d0a-9089-7f883f676021"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{valor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="341" y="0" width="98" height="20" uuid="c2bb85ce-cd1a-4c93-a3bc-95212c80a3bf"/>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<staticText>
+				<reportElement x="11" y="22" width="100" height="20" uuid="f92b72b7-f347-45c5-b725-90973b12095a"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total ]]></text>
+			</staticText>
+			<textField pattern="R$#,##0.00">
+				<reportElement x="342" y="22" width="62" height="20" uuid="4b16f00d-160b-40df-bdc2-8eccc31fd83c"/>
+				<textElement textAlignment="Right">
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{TotalValor}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>
